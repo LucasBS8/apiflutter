@@ -57,6 +57,8 @@ class _UserListScreenState extends State<UserListScreen> {
     );
   }
 
+
+//chamando os elementos da API para aparecer na lsita
   Widget _buildUserList() {
     return Expanded(
       child: FutureBuilder<List<User>>(
@@ -88,6 +90,8 @@ class _UserListScreenState extends State<UserListScreen> {
     );
   }
 
+
+//adicionando botões com metodo delete e edit em cada linha da lista
   Widget _buildEditAndDeleteButtons(User user) {
     return Wrap(
       spacing: 12,
@@ -104,6 +108,8 @@ class _UserListScreenState extends State<UserListScreen> {
     );
   }
 
+
+//chama uma caixa de dialogo(span) para escrever quais elementos serão editados
   void _showEditDialog(User user) {
     tituloController.text = user.title!;
     firstnameController.text = user.firstName;
@@ -148,6 +154,8 @@ class _UserListScreenState extends State<UserListScreen> {
     );
   }
 
+
+
   void _updateUser(User user) {
     // Inicializa um Map para armazenar apenas os campos permitidos para atualização
     Map<String, dynamic> dataToUpdate = {
@@ -170,6 +178,8 @@ class _UserListScreenState extends State<UserListScreen> {
     }
   }
 
+
+//informa na parte de baixo na tela que o usuário foi deletado
   void _deleteUser(String id) {
     userService.deleteUser(id).then((_) {
       _showSnackbar('User deleted successfully!');
@@ -179,6 +189,7 @@ class _UserListScreenState extends State<UserListScreen> {
     });
   }
 
+//campo que adiciona um novo usuário
   Widget _buildAddUserForm() {
     return Padding(
       padding: EdgeInsets.all(8.0),
@@ -202,6 +213,8 @@ class _UserListScreenState extends State<UserListScreen> {
     );
   }
 
+
+//metodo para adiocionar o 
   void _addUser() {
     if (firstnameController.text.isNotEmpty &&
         lastnameController.text.isNotEmpty &&
